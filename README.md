@@ -4,5 +4,5 @@
 
 <br>
 
-- [Django](./Django/django.md)
 - [Python](./Python/python.md)
+- [Django](./Django/django.md)

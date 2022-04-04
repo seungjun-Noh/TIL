@@ -89,3 +89,125 @@ def add(a, b):
 (lambda a,b: a + b)(1, 2)
 -> 3
 ```
+
+<br>
+
+## 💡 클래스
+
+<br>
+
+클래스란 똑같은 무엇인가를 계속해서 만들어 낼 수 있는것이고, 객체란 클래스로 만들어진 것을 의미한다.<br>
+클래스로 만든 객체는 객체마다 고유한 성격을 가진다. 즉 동일한 클래스로 만든 객체들은 서로 전혀 영향을 주지 않는다.
+
+<br>
+
+### 클래스 구조
+
+```
+class name:
+    pass
+```
+
+아무 기능도 갖고 있지 않는 클래스이다.
+객체는 클래스로 만들며 1개의 클래스로도 많은 객체를 만들 수 있다.
+위의 name 클래스로 객체를 만드는 방법이다.
+
+```
+a = name()
+```
+
+name()의 결과값을 받은 a가 객체이다.
+
+<br>
+
+### 객체에 숫자 지정할 수 있게 하기
+
+```
+class FourCal:
+    def setdata(self, first, second):
+        self.first = first
+        self.second = second
+```
+
+FourCal 클래스 안에 setdata라는 함수를 만들었다.
+클래스 안에 구현된 함수는 메서드(Method)라고 부른다.
+
+<br>
+
+#### setdata 메서드의 매개변수
+
+setdata 메서드는 매개변수로 self,first,second 3개 입력값을 받는다. 첫번째 매개변수인 self에는 setdata메서드를 호출한 객체가 자동으로 전달된다.
+
+```
+a = FourCal()
+a.setdata(4, 2)
+```
+
+a가 self에 전달되고 4는 first, 2sms second에 전달된다.
+
+즉 self.first = 4, self.second = 2이고
+self는 전달된 객체 a이므로 a.first = 4, a.second = 2로 해석이된다.
+
+```
+a = FourCal()
+a.setdata(4, 2)
+print(a.first)
+-> 4
+print(a.second)
+-> 2
+```
+
+### 더하기 기능을 가진 클래스
+
+```
+class FourCal():
+    def setdata(self, first, second):
+        self.first = first
+        self.second = second
+    def add(self):
+        result = self.first + self.second
+        return result
+```
+
+FourCal 클래스에 add메서드를 추가했다.
+
+```
+a = FourCal()
+a.setdata(4, 2)
+
+print(a.add())
+-> 6
+```
+
+a 객체의 first, second에 4 와 2가 저장되고 add메서드를 호출하여 6이 나왔다.
+
+a.add()와 같이 a 객체에 의해 add메서드가 수행되어 add 메서드의 self에는 객체 a가 자동으로 전달된다.
+
+```
+result = a.first + a.second
+```
+
+그래서 result = 4 + 2가 된다.
+
+<br>
+
+## 💡 생성자
+
+<br>
+생성자란 객체가 생성될 때 자동으로 호출되는 메서드를 의미한다. 파이썬 메서드 이름으로 __init__를 사용하면 이 메서드는 생성자가 된다.
+
+```
+def __init__(self, first, second):
+    self.first = first
+    self.second = second
+```
+
+메서드 이름을 **init**으로 했기 때문에 객체가 생성되는 시점에서 자동으로 호출이 된다.
+
+<br>
+
+```
+a = FourCal(4, 2)
+```
+
+위와 같이 실행하면 **init**메서드가 자동으로 호출이되서 self = a, firts = 4, second = 2가 전달된다.
