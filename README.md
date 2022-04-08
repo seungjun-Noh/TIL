@@ -6,3 +6,7 @@
 
 - [Python](./Python/python.md)
 - [Django](./Django/django.md)
+
+## Java
+
+- [변수](./Java/%EB%B3%80%EC%88%98.md)
